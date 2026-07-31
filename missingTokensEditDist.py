@@ -276,7 +276,7 @@ def executeMultiple(limits=[], pred_numcalcs=0, pred_fullscaleruntime=True):
         fullscale_numcalcs = getFullScaleNumCalcs()
         predicted_runtime = reg.predict(np.array([[fullscale_numcalcs]]))[0]
         print(f"For {fullscale_numcalcs} numcalcs, expected run-time: {predicted_runtime} secs")
-        print(f"\t(approx day:hour:mins: {datetime.timedelta(seconds=predicted_runtime)}")
+        print(f"\t(approx day:hour:mins: {datetime.timedelta(seconds=predicted_runtime)})")
 
 def main():
     raise NotImplementedError(f"This script is meant to be called via Fire, e.g.:\t\npython missingTokensEditDist.py execute --limit=50")
