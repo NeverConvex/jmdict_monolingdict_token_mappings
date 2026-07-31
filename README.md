@@ -22,20 +22,20 @@ Once Step 2 is complete, I intend next to:
 3. repeat similar calculations but using Japanese-conjugation-aware Levenshtein distance. I suspect/hope that, among the ≈90% of non-shared tokens, many actually appear to be identical or near-identical after accounting for various common Japanese-language transformations (like conjugating verbs; making different choices about whether to write a token in kanji, hiragana, or katakana; making common formal/informal substitutions e.g. swapping `と` with `って`, and so forth), and that the Levenshtein-distance calculations will hopefull be able to detect this without generating too many false positives (incorrectly applying transformations to suggest two tokens are identical when they are semantically different).
 
 [^1]: e.g., a test calculation produces this output:
-```
-For 1000000 pairs, elapsed time (secs): 0.2392880916595459
-# calcs -> elapsed_time
-625 -> 0.0012416839599609375
-2500 -> 0.002223491668701172
-10000 -> 0.009378194808959961
-250000 -> 0.08058786392211914
-1000000 -> 0.2392880916595459
-R-Square for predicting run-time from numcalcs: 0.9930411635712505
-jmdict.db initially has tables: ['jmdict_slug', 'jmdict_japanese', 'jmdict_engl_defns', 'jmdict_pos', 'jmdict_tags', 'jmdict_attributions', 'distinct_jmdict_engl_defns_monoling_join', 'jm_spellfix', 'jm_spellfix_vocab']
-jmdict pragma table_info: (0, 'id', 'INTEGER', 0, None, 1)
-monol pragma table_info: None
-jmremaining_tab contains 460290 rows
-monolremaining_tab contains 98075 rows
-For 45142941750 numcalcs, expected run-time: 10654.571062474555 secs
-        (approx day:hour:mins: 2:57:34.571062)
-```
+    ```
+    For 1000000 pairs, elapsed time (secs): 0.2392880916595459
+    # calcs -> elapsed_time
+    625 -> 0.0012416839599609375
+    2500 -> 0.002223491668701172
+    10000 -> 0.009378194808959961
+    250000 -> 0.08058786392211914
+    1000000 -> 0.2392880916595459
+    R-Square for predicting run-time from numcalcs: 0.9930411635712505
+    jmdict.db initially has tables: ['jmdict_slug', 'jmdict_japanese', 'jmdict_engl_defns', 'jmdict_pos', 'jmdict_tags', 'jmdict_attributions', 'distinct_jmdict_engl_defns_monoling_join', 'jm_spellfix', 'jm_spellfix_vocab']
+    jmdict pragma table_info: (0, 'id', 'INTEGER', 0, None, 1)
+    monol pragma table_info: None
+    jmremaining_tab contains 460290 rows
+    monolremaining_tab contains 98075 rows
+    For 45142941750 numcalcs, expected run-time: 10654.571062474555 secs
+            (approx day:hour:mins: 2:57:34.571062)
+    ```
